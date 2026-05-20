@@ -6,10 +6,10 @@ import './Transfers.css'
 const mockTransfers = []
 
 const summaryCards = [
-  { label: 'Total Transfers',    value: '₹73,600', color: '#16a34a', bg: '#f0fdf4', border: '#86efac' },
-  { label: 'Pending',            value: '₹17,600', color: '#f59e0b', bg: '#fffbeb', border: '#fcd34d' },
-  { label: 'Completed',          value: '₹49,200', color: '#3b82f6', bg: '#eff6ff', border: '#93c5fd' },
-  { label: 'Rejected',           value: '₹6,800',  color: '#ef4444', bg: '#fef2f2', border: '#fca5a5' },
+  { label: 'Total Transfers', value: '—', color: '#16a34a', bg: '#f0fdf4', border: '#86efac' },
+  { label: 'Pending',         value: '—', color: '#f59e0b', bg: '#fffbeb', border: '#fcd34d' },
+  { label: 'Completed',       value: '—', color: '#3b82f6', bg: '#eff6ff', border: '#93c5fd' },
+  { label: 'Rejected',        value: '—', color: '#ef4444', bg: '#fef2f2', border: '#fca5a5' },
 ]
 
 export default function Transfers() {

@@ -1,16 +1,16 @@
 import { useState } from 'react'
-import { Search, Plus, Edit2, Trash2, UserCheck, UserX } from 'lucide-react'
+import { Search } from 'lucide-react'
 import './PageCommon.css'
 
-const mockEmployees = []
+const employees = [] // will be fetched from Supabase
 
 export default function Employees() {
   const [search, setSearch] = useState('')
   const [roleFilter, setRoleFilter] = useState('All')
 
-  const filtered = mockEmployees.filter(e => {
-    const matchSearch = e.name.toLowerCase().includes(search.toLowerCase()) ||
-                        e.id.toLowerCase().includes(search.toLowerCase())
+  const filtered = employees.filter(e => {
+    const matchSearch = e.name?.toLowerCase().includes(search.toLowerCase()) ||
+                        e.employee_id?.toLowerCase().includes(search.toLowerCase())
     const matchRole = roleFilter === 'All' || e.role === roleFilter
     return matchSearch && matchRole
   })
@@ -20,9 +20,8 @@ export default function Employees() {
       <div className="page-header">
         <div>
           <h2 className="page-title">Employees</h2>
-          <p className="page-sub">Manage all FSEs and Team Leaders</p>
+          <p className="page-sub">View all FSEs and Team Leaders</p>
         </div>
-        <button className="primary-btn"><Plus size={16} /> Add Employee</button>
       </div>
 
       <div className="page-toolbar">
@@ -53,37 +52,33 @@ export default function Employees() {
               <th>Name</th>
               <th>Role</th>
               <th>Location</th>
+              <th>Team Leader</th>
               <th>Email</th>
               <th>Status</th>
-              <th>Actions</th>
             </tr>
           </thead>
           <tbody>
-            {filtered.map(emp => (
-              <tr key={emp.id}>
-                <td><span className="id-badge">{emp.id}</span></td>
-                <td><strong>{emp.name}</strong></td>
-                <td>
-                  <span className={`role-pill ${emp.role.toLowerCase()}`}>{emp.role}</span>
-                </td>
-                <td>{emp.location}</td>
-                <td>{emp.email}</td>
-                <td>
-                  <span className={`status-pill ${emp.status.toLowerCase()}`}>{emp.status}</span>
-                </td>
-                <td>
-                  <div className="action-btns">
-                    <button className="icon-btn edit"><Edit2 size={14} /></button>
-                    <button className="icon-btn delete"><Trash2 size={14} /></button>
-                  </div>
+            {filtered.length === 0 ? (
+              <tr>
+                <td colSpan={7} style={{ textAlign: 'center', padding: 32, color: 'var(--gray-400)' }}>
+                  No employees found
                 </td>
               </tr>
-            ))}
+            ) : (
+              filtered.map((emp, i) => (
+                <tr key={i}>
+                  <td><span className="id-badge">{emp.employee_id}</span></td>
+                  <td><strong>{emp.name}</strong></td>
+                  <td><span className={`role-pill ${emp.role?.toLowerCase()}`}>{emp.role}</span></td>
+                  <td>{emp.location}</td>
+                  <td>{emp.tl_name || '—'}</td>
+                  <td>{emp.email}</td>
+                  <td><span className={`status-pill ${emp.status?.toLowerCase()}`}>{emp.status}</span></td>
+                </tr>
+              ))
+            )}
           </tbody>
         </table>
-        {filtered.length === 0 && (
-          <div className="empty-state">No employees found.</div>
-        )}
       </div>
     </div>
   )
