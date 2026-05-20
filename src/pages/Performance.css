@@ -1,0 +1,70 @@
+.perf-summary {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.perf-card {
+  background: white;
+  border-radius: 12px;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  border: 1px solid var(--green-100);
+  box-shadow: 0 1px 4px rgba(22,163,74,0.06);
+}
+
+.perf-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.perf-label {
+  font-size: 12px;
+  color: var(--gray-400);
+  margin-bottom: 4px;
+}
+
+.perf-value {
+  font-size: 22px;
+  font-weight: 800;
+}
+
+.progress-wrap {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--green-700);
+}
+
+.progress-bar {
+  width: 80px;
+  height: 6px;
+  background: var(--green-100);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background: var(--green-500);
+  border-radius: 3px;
+}
+
+.trend {
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.trend.up   { color: var(--green-600); }
+.trend.down { color: var(--red-500);   }
+.trend.flat { color: var(--gray-400);  }

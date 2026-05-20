@@ -1,0 +1,62 @@
+.unauth-bg {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #166534 0%, #15803d 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.unauth-card {
+  background: white;
+  border-radius: 20px;
+  padding: 48px 40px;
+  text-align: center;
+  max-width: 400px;
+  width: 100%;
+  box-shadow: 0 25px 60px rgba(0,0,0,0.2);
+}
+
+.unauth-icon {
+  width: 72px;
+  height: 72px;
+  background: #fef2f2;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 20px;
+}
+
+.unauth-card h2 {
+  font-size: 22px;
+  font-weight: 800;
+  color: var(--gray-800);
+  margin-bottom: 10px;
+}
+
+.unauth-card p {
+  font-size: 14px;
+  color: var(--gray-600);
+  line-height: 1.6;
+}
+
+.unauth-sub {
+  font-size: 12px !important;
+  color: var(--gray-400) !important;
+  margin-top: 6px;
+}
+
+.unauth-btn {
+  margin-top: 24px;
+  padding: 12px 32px;
+  background: #ef4444;
+  color: white;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 600;
+  transition: background 0.2s;
+}
+
+.unauth-btn:hover {
+  background: #dc2626;
+}
